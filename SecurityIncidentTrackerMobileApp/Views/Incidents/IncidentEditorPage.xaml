@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="SecurityIncidentTrackerMobileApp.Views.Incidents.IncidentEditorPage"
+             Title="Incident"
+             BackgroundColor="#121212">
+    <ScrollView>
+        <VerticalStackLayout Spacing="15" Padding="20">
+            <Label Text="Description" FontAttributes="Bold" TextColor="White"/>
+            <Border StrokeShape="RoundRectangle 10"
+                   StrokeThickness="0"
+                   BackgroundColor="#212121"
+                   HeightRequest="50"
+                   Padding="15,0">
+                <Entry x:Name="entDescriere"
+                       Placeholder="Describe the incident"
+                       PlaceholderColor="Gray"
+                       TextColor="White"
+                       BackgroundColor="Transparent"/>
+            </Border>
+
+            <Label Text="Incident Type" FontAttributes="Bold" TextColor="White"/>
+            <Border StrokeShape="RoundRectangle 10"
+                    StrokeThickness="0"
+                    BackgroundColor="#212121"
+                    HeightRequest="50"
+                    Padding="15,0">
+                <Picker x:Name="pickerType" 
+                        ItemDisplayBinding="{Binding TypeName}" 
+                        Title="Select Incident Type"
+                        TextColor="White"
+                        TitleColor="Gray"
+                        BackgroundColor="Transparent"/>
+            </Border>
+
+            <Label Text="Date" FontAttributes="Bold" TextColor="White"/>
+            <Border StrokeShape="RoundRectangle 10"
+                   StrokeThickness="0"
+                   BackgroundColor="#212121"
+                   HeightRequest="50"
+                   Padding="15,0">
+                <DatePicker x:Name="pickerDate" 
+                           Format="dd/MM/yyyy"
+                           TextColor="White"
+                           BackgroundColor="Transparent"/>
+            </Border>
+
+            <Label Text="Status" FontAttributes="Bold" TextColor="White"/>
+            <Border StrokeShape="RoundRectangle 10"
+                   StrokeThickness="0"
+                   BackgroundColor="#212121"
+                   HeightRequest="50"
+                   Padding="15,0">
+                <Picker x:Name="pickerStatus" 
+                       Title="Select Status"
+                       TextColor="White"
+                       TitleColor="Gray"
+                       BackgroundColor="Transparent"/>
+            </Border>
+
+            <Label Text="Technician" FontAttributes="Bold" TextColor="White"/>
+            <Border StrokeShape="RoundRectangle 10"
+                   StrokeThickness="0"
+                   BackgroundColor="#212121"
+                   HeightRequest="50"
+                   Padding="15,0">
+                <Picker x:Name="pickerTech" 
+                       ItemDisplayBinding="{Binding FullName}" 
+                       Title="Select Technician"
+                       TextColor="White"
+                       TitleColor="Gray"
+                       BackgroundColor="Transparent"/>
+            </Border>
+
+            <Label Text="Department" FontAttributes="Bold" TextColor="White"/>
+            <Border StrokeShape="RoundRectangle 10"
+                   StrokeThickness="0"
+                   BackgroundColor="#212121"
+                   HeightRequest="50"
+                   Padding="15,0">
+                <Picker x:Name="pickerDepartment" 
+                       ItemDisplayBinding="{Binding DepartmentName}" 
+                       Title="Select Department"
+                       TextColor="White"
+                       TitleColor="Gray"
+                       BackgroundColor="Transparent"/>
+            </Border>
+
+            <Label Text="Device" FontAttributes="Bold" TextColor="White"/>
+            <Border StrokeShape="RoundRectangle 10"
+                   StrokeThickness="0"
+                   BackgroundColor="#212121"
+                   HeightRequest="50"
+                   Padding="15,0">
+                <Picker x:Name="pickerDevice" 
+                       ItemDisplayBinding="{Binding DeviceName}" 
+                       Title="Select Device"
+                       TextColor="White"
+                       TitleColor="Gray"
+                       BackgroundColor="Transparent"/>
+            </Border>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,20,0,0">
+                <Button Text="SAVE" Clicked="OnSaveClicked" Grid.Column="0" BackgroundColor="#7f1d1d" TextColor="White" HeightRequest="45" CornerRadius="8"/>
+                <Button Text="CLOSE" Clicked="OnCancelClicked" Grid.Column="1" BackgroundColor="Gray" TextColor="White" HeightRequest="45" CornerRadius="8"/>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

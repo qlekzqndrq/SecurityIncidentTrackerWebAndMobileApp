@@ -1,0 +1,186 @@
+﻿html {
+    font-size: 14px;
+    /* Face calendarul si scrollbar-ul negre */
+    color-scheme: dark;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem #333, 0 0 0 0.25rem #991b1b;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #121212;
+    color: white;
+}
+
+/* DARK MODE PENTRU FORMULARE */
+
+/* Casutele de text (Input) si listele (Select) */
+.form-control, .form-select {
+    background-color: #2b2b2b !important; /* Gri inchis */
+    color: white !important; /* Scris alb */
+    border: 1px solid #444; /* Contur subtil */
+}
+
+    /* Cand dai click in casuta (Focus) */
+    .form-control:focus, .form-select:focus {
+        background-color: #333 !important; /* Gri mai deschis */
+        color: white !important;
+        border-color: #991b1b; /* Contur rosu */
+        box-shadow: 0 0 0 0.25rem rgba(153, 27, 27, 0.25); /* Glow rosu */
+    }
+
+/* Etichetele de deasupra (Label) */
+.control-label {
+    color: #ccc; /* Gri deschis pentru textul "Problem Description", etc. */
+    font-weight: 500;
+}
+
+/* SPATIERE FORMULARE */
+
+/* Adauga spatiu sub fiecare grup (Eticheta + Casuta) */
+.form-group {
+    margin-bottom: 10px; /* Spatiu intre randuri */
+}
+
+/* Daca avem elemente care nu sunt in form-group, fortam spatierea */
+.form-control {
+    margin-bottom: 5px; /* Spatiu mic sub casuta, in caz ca apare text de eroare */
+}
+
+/* Butoanele de jos (Save / Back), spatiul de deasupra */
+.form-group input[type="submit"],
+button[type="submit"] {
+    margin-top: 5px;
+}
+
+/* STILIZARE BUTOANE (CSS) */
+
+/* BUTONUL "CREATE NEW" */
+/* Suprascriem clasa btn-danger sa fie culoarea pe care o vrem */
+.btn-danger {
+    background-color: #991b1b !important;
+    border-color: #991b1b !important;
+    color: white !important;
+}
+    /* Cand punem mouse-ul pe el se face putin mai deschis */
+    .btn-danger:hover {
+        background-color: #b91c1c !important;
+        border-color: #b91c1c !important;
+    }
+
+/* BUTOANELE DIN TABEL (Edit | Details | Delete) */
+/* Scoatem bordura (conturul) tuturor butoanelor din grup */
+.btn-group .btn {
+    border: none !important;
+    background-color: transparent !important;
+    margin: 0 2px; /* Putin spatiu intre ele */
+}
+
+/* Edit si Details -> ALBASTRU (#0d6efd este albastrul standard, am pus unul mai luminos pentru fundalul negru) */
+.btn-group a[href*="Edit"],
+.btn-group a[href*="Details"] {
+    color: #3b82f6 !important; /* Albastru luminos */
+}
+
+/* Delete -> ROSU */
+.btn-group a[href*="Delete"] {
+    color: #ef4444 !important; /* Rosu luminos */
+}
+
+/* Efect vizual: Cand trecem cu mouse-ul peste scris, sa apara o linie dedesubt */
+.btn-group .btn:hover {
+    text-decoration: underline !important;
+}
+
+/* BUTONUL DE CREATE/SAVE (ROSU PERMANENT) */
+
+/* Tinta: Orice buton de tip Submit (Create sau Save) */
+.form-group input[type="submit"] {
+    background-color: #991b1b !important; /* Rosu Visiniu */
+    border: 1px solid #991b1b !important;
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+    /* Cand punem mouse-ul pe el -> devine putin mai aprins */
+    .form-group input[type="submit"]:hover {
+        background-color: #b91c1c !important;
+        border-color: #b91c1c !important;
+        box-shadow: 0 0 8px rgba(153, 27, 27, 0.6); /* Glow rosu */
+    }
+
+/* LINK-UL "BACK TO LIST" DE LANGA EL */
+
+/* Il transformam din text albastru in buton gri */
+.form-group a {
+    color: #bbb !important;
+    text-decoration: none; /* Fara subliniere */
+    margin-left: 10px; /* Spatiu fata de butonul rosu */
+    padding: 8px 15px; /* Il facem mai mare putin */
+    border: 1px solid #555;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+    /* Cand punem mouse-ul pe Back to List */
+    .form-group a:hover {
+        background-color: #333;
+        color: white !important;
+        border-color: #777;
+    }
+
+/* PAGINILE DE LOGIN SI MANAGE */
+
+/* Transforma toate butoanele "primary" (albastre standard) in rosul (#991b1b) */
+.btn-primary {
+    background-color: #991b1b !important;
+    border-color: #991b1b !important;
+    color: white !important;
+}
+
+    /* Cand punem mouse-ul pe ele, sa fie la fel ca btn-danger (rosu mai deschis) */
+    .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+        background-color: #b91c1c !important;
+        border-color: #b91c1c !important;
+    }
+
+/* Meniul din stanga de la Manage Account (tab-urile active) */
+/* Cand selectam "Profile" sau "Password", sa se faca rosu, nu albastru */
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    background-color: #991b1b !important;
+    color: white !important;
+}
+
+/* Link-urile inactive sa fie gri deschis, nu albastre */
+.nav-pills .nav-link {
+    color: #ddd !important;
+}
+
+    .nav-pills .nav-link:hover {
+        background-color: #333 !important; /* Gri inchis la hover */
+        color: white !important;
+    }
+
+/* CHECKBOX */
+input[type="checkbox"] {
+    accent-color: #991b1b; /* Rosu (aceeasi culoare ca la butoane) */
+    width: 20px; /* Marim putin bifa ca sa fie vizibila */
+    height: 20px;
+    cursor: pointer;
+}

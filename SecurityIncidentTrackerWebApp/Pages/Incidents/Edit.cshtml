@@ -1,0 +1,69 @@
+﻿@page
+@model SecurityIncidentTrackerWebApp.Pages.Incidents.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Incident</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Incident.ID" />
+            <div class="form-group">
+                <label asp-for="Incident.Description" class="control-label"></label>
+                <input asp-for="Incident.Description" class="form-control" />
+                <span asp-validation-for="Incident.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Incident.IncidentTypeID" class="control-label">Type</label>
+                <select asp-for="Incident.IncidentTypeID" class="form-control" asp-items="ViewBag.IncidentTypeID">
+                </select>
+                <span asp-validation-for="Incident.IncidentTypeID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Incident.IncidentDate" class="control-label"></label>
+                <input asp-for="Incident.IncidentDate" class="form-control" />
+                <span asp-validation-for="Incident.IncidentDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Incident.Status" class="control-label">Status</label>
+                <select asp-for="Incident.Status" class="form-control"
+                        asp-items="Html.GetEnumSelectList<SecurityIncidentTrackerWebApp.Models.IncidentStatus>()">
+                    <option value="">Select Status</option>
+                </select>
+                <span asp-validation-for="Incident.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Incident.TechnicianID" class="control-label">Assigned Technician</label>
+                <select asp-for="Incident.TechnicianID" class="form-control" asp-items="ViewBag.TechnicianID" ></select>
+                <span asp-validation-for="Incident.TechnicianID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Incident.DepartmentID" class="control-label">Department</label>
+                <select asp-for="Incident.DepartmentID" class="form-control" asp-items="ViewBag.DepartmentID" ></select>
+                <span asp-validation-for="Incident.DepartmentID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Incident.DeviceID" class="control-label">Device</label>
+                <select asp-for="Incident.DeviceID" class="form-control" asp-items="ViewBag.DeviceID" ></select>
+                <span asp-validation-for="Incident.DeviceID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

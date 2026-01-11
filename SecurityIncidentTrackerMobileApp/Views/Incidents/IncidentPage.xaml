@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="SecurityIncidentTrackerMobileApp.Views.Incidents.IncidentPage"
+             Title="Incidents">
+
+    <Grid RowDefinitions="*, Auto" Padding="20" RowSpacing="10">
+        <CollectionView x:Name="listView" Grid.Row="0">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="0,5" Padding="15" CornerRadius="10">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnIncidentTapped" NumberOfTapsRequired="1" />
+                        </Frame.GestureRecognizers>
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="{Binding Description}" FontSize="16" FontAttributes="Bold" LineBreakMode="TailTruncation" />
+                            <Label Text="{Binding IncidentDate, StringFormat='Date: {0:dd/MM/yyyy}'}" FontSize="12"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Grid.Row="1" Text="ADD NEW INCIDENT" Clicked="OnAddClicked" TextColor="White" HeightRequest="45" CornerRadius="25"/>
+    </Grid>
+</ContentPage>

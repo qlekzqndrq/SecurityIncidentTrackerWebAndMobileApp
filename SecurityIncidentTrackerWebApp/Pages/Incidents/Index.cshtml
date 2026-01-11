@@ -1,0 +1,80 @@
+﻿@page
+@model SecurityIncidentTrackerWebApp.Pages.Incidents.IndexModel
+
+@{
+    ViewData["Title"] = "Incidents";
+}
+
+<h1>Incidents</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-danger shadow">Create New</a>
+</p>
+
+<div class="table-responsive" style="width: 100%; overflow-x: auto;">
+
+    <table class="table text-white">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Incident[0].Description)
+                </th>
+                <th>
+                    Type
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Incident[0].IncidentDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Incident[0].Status)
+                </th>
+                <th>
+                    Assigned Technician
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Incident[0].Department)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Incident[0].Device)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Incident)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IncidentType.TypeName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IncidentDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Technician.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Department.DepartmentName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Device.DeviceName)
+                    </td>
+                    <td class="text-end">
+                        <div class="btn-group btn-group-sm">
+                            <a asp-page="./Edit" asp-route-id="@item.ID" class="btn btn-outline-secondary text-white">Edit</a>
+                            <a asp-page="./Details" asp-route-id="@item.ID" class="btn btn-outline-secondary text-info">Details</a>
+                            <a asp-page="./Delete" asp-route-id="@item.ID" class="btn btn-outline-secondary text-danger">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

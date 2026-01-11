@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SecurityIncidentTrackerMobileApp.Views.RegisterPage"
+             Title="Register"
+             BackgroundColor="#121212">
+
+    <VerticalStackLayout Spacing="20" Padding="30" VerticalOptions="Center">
+
+        <Label Text="Create New Account" 
+               TextColor="White"
+               FontSize="30" 
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+
+        <Border StrokeShape="RoundRectangle 10"
+                StrokeThickness="0"
+                BackgroundColor="#212121"
+                HeightRequest="50"
+                Padding="15,0">
+            <Entry x:Name="EmailEntry"
+                   Placeholder="Email Address"
+                   PlaceholderColor="gray"
+                   TextColor="white"
+                   BackgroundColor="Transparent"
+                   Keyboard="Email"
+                   VerticalOptions="Center" />
+        </Border>
+
+        <Border StrokeShape="RoundRectangle 10"
+                StrokeThickness="0"
+                BackgroundColor="#212121"
+                HeightRequest="50"
+                Padding="15,0">
+            <Entry x:Name="PasswordEntry"
+                   Placeholder="Password"
+                   PlaceholderColor="gray"
+                   TextColor="white"
+                   BackgroundColor="Transparent"
+                   IsPassword="True"
+                   VerticalOptions="Center" />
+        </Border>
+
+        <Button Text="REGISTER NOW" 
+                Clicked="OnRegisterClicked" 
+                BackgroundColor="#B71C1C" 
+                TextColor="White"
+                FontAttributes="Bold"
+                CornerRadius="8"
+                HeightRequest="45"/>
+
+        <Label Text="Back to Login"
+               TextColor="white"
+               FontSize="Small"
+               HorizontalOptions="Center"
+               Margin="0,10,0,0">
+
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnCancelClicked"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <ActivityIndicator x:Name="LoadingSpinner" IsRunning="False" Color="red"/>
+
+    </VerticalStackLayout>
+</ContentPage>

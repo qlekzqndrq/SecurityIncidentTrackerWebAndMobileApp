@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<style name="MainTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+		<item name="android:colorPrimary">#991b1b</item>
+		<item name="android:colorPrimaryDark">#7f1d1d</item>
+		<item name="android:colorAccent">#991b1b</item>
+
+		<item name="android:windowLightStatusBar">false</item>
+		<item name="android:navigationBarColor">#000000</item>
+
+		<item name="android:dialogTheme">@style/DarkDialogTheme</item>
+		<item name="android:alertDialogTheme">@style/DarkDialogTheme</item>
+		<item name="android:popupMenuStyle">@style/DarkPopupMenu</item>
+		<item name="popupMenuStyle">@style/DarkPopupMenu</item>
+	</style>
+
+	<style name="DarkDialogTheme" parent="Theme.MaterialComponents.DayNight.Dialog">
+		<item name="android:background">#2b2b2b</item>
+		<item name="android:windowBackground">@android:color/transparent</item>
+		<item name="android:textColor">#FFFFFF</item>
+		<item name="colorAccent">#991b1b</item>
+	</style>
+
+	<style name="DarkPopupMenu" parent="Widget.MaterialComponents.PopupMenu">
+		<item name="android:popupBackground">#2b2b2b</item>
+		<item name="android:textColor">#FFFFFF</item>
+	</style>
+
+	<style name="Maui.SplashTheme" parent="MainTheme">
+		<item name="android:windowBackground">#2F2F2F</item>
+		<item name="android:windowNoTitle">true</item>
+		<item name="android:windowFullscreen">true</item>
+
+		<item name="android:windowSplashScreenAnimatedIcon">@drawable/maui_splash_image</item>
+	</style>
+</resources>

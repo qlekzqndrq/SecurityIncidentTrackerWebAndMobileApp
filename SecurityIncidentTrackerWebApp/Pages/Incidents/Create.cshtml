@@ -1,0 +1,71 @@
+﻿@page
+@model SecurityIncidentTrackerWebApp.Pages.Incidents.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Incident</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" autocomplete="off">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Incident.Description" class="control-label"></label>
+                <input asp-for="Incident.Description" class="form-control" />
+                <span asp-validation-for="Incident.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Incident.IncidentTypeID" class="control-label">Type</label>
+                <select asp-for="Incident.IncidentTypeID" class="form-control" asp-items="ViewBag.IncidentTypeID">
+                    <option value="">Select Incident Type</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Incident.IncidentDate" class="control-label"></label>
+                <input asp-for="Incident.IncidentDate" class="form-control" />
+                <span asp-validation-for="Incident.IncidentDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Incident.Status" class="control-label">Status</label>
+                <select asp-for="Incident.Status" class="form-control"
+                        asp-items="Html.GetEnumSelectList<SecurityIncidentTrackerWebApp.Models.IncidentStatus>()">
+                    <option value="">Select Status</option>
+                </select>
+                <span asp-validation-for="Incident.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Incident.TechnicianID" class="control-label">Assigned Technician</label>
+                <select asp-for="Incident.TechnicianID" class="form-control" asp-items="ViewBag.TechnicianID">
+                    <option value="">Select Technician</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Incident.DepartmentID" class="control-label">Department</label>
+                <select asp-for="Incident.DepartmentID" class="form-control" asp-items="ViewBag.DepartmentID">
+                    <option value="">Select Department</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Incident.DeviceID" class="control-label">Device</label>
+                <select asp-for="Incident.DeviceID" class="form-control" asp-items="ViewBag.DeviceID">
+                    <option value="">Select Device</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,45 @@
+﻿@page
+@model SecurityIncidentTrackerWebApp.Pages.Devices.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Device</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Device.DeviceName" class="control-label"></label>
+                <input asp-for="Device.DeviceName" class="form-control" />
+                <span asp-validation-for="Device.DeviceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Device.SerialNumber" class="control-label"></label>
+                <input asp-for="Device.SerialNumber" class="form-control" />
+                <span asp-validation-for="Device.SerialNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Device.DepartmentID" class="control-label">Assigned Department</label>
+                <select asp-for="Device.DepartmentID" class="form-control" asp-items="ViewBag.DepartmentID">
+                    <option value="">Select Department</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

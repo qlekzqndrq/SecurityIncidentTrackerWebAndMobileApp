@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="SecurityIncidentTrackerMobileApp.Views.Technicians.TechnicianEditorPage"
+             Title="Technicians"
+             BackgroundColor="#121212">
+    <ScrollView>
+        <VerticalStackLayout Spacing="15" Padding="20">
+            <Label Text="First Name" FontAttributes="Bold" TextColor="White"/>
+            <Border StrokeShape="RoundRectangle 10"
+                   StrokeThickness="0"
+                   BackgroundColor="#212121"
+                   HeightRequest="50"
+                   Padding="15,0">
+                <Entry x:Name="entFirst" 
+                       Placeholder="Ex: Ion"
+                       PlaceholderColor="Gray"
+                       TextColor="White"
+                       BackgroundColor="Transparent"/>
+            </Border>
+
+            <Label Text="Last Name" FontAttributes="Bold" TextColor="White"/>
+            <Border StrokeShape="RoundRectangle 10"
+                   StrokeThickness="0"
+                   BackgroundColor="#212121"
+                   HeightRequest="50"
+                   Padding="15,0">
+                <Entry x:Name="entLast" 
+                       Placeholder="Ex: Popescu"
+                       PlaceholderColor="Gray"
+                       TextColor="White"
+                       BackgroundColor="Transparent"/>
+            </Border>
+
+            <Label Text="Email" FontAttributes="Bold" TextColor="White"/>
+            <Border StrokeShape="RoundRectangle 10"
+                   StrokeThickness="0"
+                   BackgroundColor="#212121"
+                   HeightRequest="50"
+                   Padding="15,0">
+                <Entry x:Name="entEmail" 
+                       Placeholder="email@example.com" 
+                       Keyboard="Email"
+                       PlaceholderColor="Gray"
+                       TextColor="White"
+                       BackgroundColor="Transparent"/>
+            </Border>
+
+            <Label Text="Phone Number" FontAttributes="Bold" TextColor="White"/>
+            <Border StrokeShape="RoundRectangle 10"
+                   StrokeThickness="0"
+                   BackgroundColor="#212121"
+                   HeightRequest="50"
+                   Padding="15,0">
+                <Entry x:Name="entPhone" 
+                       Placeholder="07xx..." 
+                       Keyboard="Telephone"
+                       PlaceholderColor="Gray"
+                       TextColor="White"
+                       BackgroundColor="Transparent"/>
+            </Border>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,20,0,0">
+                <Button Text="SAVE" Clicked="OnSaveClicked" Grid.Column="0" BackgroundColor="#7f1d1d" TextColor="White" HeightRequest="45" CornerRadius="8"/>
+                <Button Text="CLOSE" Clicked="OnCancelClicked" Grid.Column="1" BackgroundColor="Gray" TextColor="White" HeightRequest="45" CornerRadius="8"/>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

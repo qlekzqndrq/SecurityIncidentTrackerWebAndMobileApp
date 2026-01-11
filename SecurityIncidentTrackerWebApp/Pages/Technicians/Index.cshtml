@@ -1,0 +1,56 @@
+﻿@page
+@model SecurityIncidentTrackerWebApp.Pages.Technicians.IndexModel
+
+@{
+    ViewData["Title"] = "Technicians";
+}
+
+<h1>Technicians</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-danger shadow">Create New</a>
+</p>
+<table class="table text-white">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Technician[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Technician[0].LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Technician[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Technician[0].Phone)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Technician) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td class="text-end">
+                <div class="btn-group btn-group-sm">
+                    <a asp-page="./Edit" asp-route-id="@item.ID" class="btn btn-outline-secondary text-white">Edit</a>
+                    <a asp-page="./Details" asp-route-id="@item.ID" class="btn btn-outline-secondary text-info">Details</a>
+                    <a asp-page="./Delete" asp-route-id="@item.ID" class="btn btn-outline-secondary text-danger">Delete</a>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

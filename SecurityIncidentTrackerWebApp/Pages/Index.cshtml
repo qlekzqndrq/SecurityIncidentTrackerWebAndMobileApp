@@ -1,0 +1,225 @@
+﻿@page
+@model SecurityIncidentTrackerWebApp.Pages.IndexModel
+@{
+    ViewData["Title"] = "Security Incident Tracker";
+}
+
+<style>
+    :root {
+        --primary-red: #dc2626;
+        --dark-red: #991b1b;
+        --light-red: #ef4444;
+        --black: #0a0a0a;
+        --dark-gray: #1a1a1a;
+        --medium-gray: #2a2a2a;
+        --light-gray: #3a3a3a;
+    }
+
+    body {
+        background: linear-gradient(135deg, var(--black) 0%, var(--dark-gray) 100%);
+        min-height: 100vh;
+    }
+
+    .hero-section {
+        background: linear-gradient(135deg, var(--dark-red) 0%, var(--black) 100%);
+        padding: 4rem 2rem;
+        border-radius: 20px;
+        margin-bottom: 3rem;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(220, 38, 38, 0.3);
+    }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(239, 68, 68, 0.1) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+    @@keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+            opacity: 0.5;
+        }
+
+        50% {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #fff 0%, #ef4444 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+        text-shadow: 0 0 30px rgba(239, 68, 68, 0.5);
+    }
+
+    .hero-subtitle {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.3rem;
+        font-weight: 300;
+        letter-spacing: 0.5px;
+    }
+
+    .action-card {
+        background: var(--medium-gray);
+        border: 2px solid var(--light-gray);
+        border-radius: 16px;
+        padding: 2.5rem;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        height: 100%;
+    }
+
+        .action-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-red);
+            box-shadow: 0 20px 40px rgba(220, 38, 38, 0.4);
+        }
+
+    .card-icon {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        font-size: 2rem;
+        box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
+        position: relative;
+    }
+
+        .card-icon::after {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+        }
+
+    .card-title {
+        color: #fff;
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .card-description {
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 2rem;
+        line-height: 1.6;
+    }
+
+    .btn-primary-custom {
+        background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+        border: none;
+        color: white;
+        padding: 1rem 2.5rem;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 25px rgba(220, 38, 38, 0.3);
+        text-decoration: none;
+        display: inline-block;
+    }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(220, 38, 38, 0.5);
+            color: white;
+        }
+
+    .btn-secondary-custom {
+        background: transparent;
+        border: 2px solid var(--primary-red);
+        color: var(--light-red);
+        padding: 1rem 2.5rem;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+        .btn-secondary-custom:hover {
+            background: var(--primary-red);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.4);
+        }
+
+    .stats-badge {
+        display: inline-block;
+        background: rgba(220, 38, 38, 0.2);
+        border: 1px solid var(--primary-red);
+        color: var(--light-red);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-top: 1rem;
+    }
+</style>
+
+<div class="container py-5">
+    <!-- Hero Section -->
+    <div class="hero-section text-center">
+        <div class="hero-content">
+            <h1 class="hero-title">Security Incident Tracker</h1>
+            <p class="hero-subtitle">Manage security incidents quickly and efficiently</p>
+            <div class="stats-badge">Professional Monitoring System</div>
+        </div>
+    </div>
+
+    <!-- Action Cards -->
+    <div class="row g-4 mb-4">
+        <div class="col-lg-6">
+            <div class="action-card">
+                <div class="card-icon"></div>
+                <h3 class="card-title text-center">Report Incident</h3>
+                <p class="card-description text-center">
+                    Found a security issue? Report the incident immediately to protect the system.
+                </p>
+                <div class="text-center">
+                    <a asp-page="/Incidents/Create" class="btn-primary-custom">
+                        New Incident
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="action-card">
+                <div class="card-icon"></div>
+                <h3 class="card-title text-center">Incident List</h3>
+                <p class="card-description text-center">
+                    View incident history, track progress, or update status.
+                </p>
+                <div class="text-center">
+                    <a asp-page="/Incidents/Index" class="btn-secondary-custom">
+                        View All Incidents
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

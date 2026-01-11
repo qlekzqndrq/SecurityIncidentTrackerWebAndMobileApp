@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SecurityIncidentTrackerMobileApp.Views.LoginPage"
+             Title="Login"
+             BackgroundColor="#121212">
+    <VerticalStackLayout Spacing="20" Padding="30" VerticalOptions="Center">
+
+        <Label Text="Login into your account" 
+               TextColor="White"
+               FontSize="30" 
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+
+		<Border StrokeShape="RoundRectangle 10"
+			   StrokeThickness="0"
+			   BackgroundColor="#212121"
+			   HeightRequest="50"
+			   Padding="15,0">
+			<Entry x:Name="EmailEntry"
+				   Placeholder="Email Address"
+				   PlaceholderColor="gray"
+				   TextColor="white"
+				   BackgroundColor="Transparent"
+				   Keyboard="Email" />
+		</Border>
+
+		<Border StrokeShape="RoundRectangle 10"
+			   StrokeThickness="0"
+			   BackgroundColor="#212121"
+			   HeightRequest="50"
+			   Padding="15,0">
+			<Entry x:Name="PasswordEntry"
+				   Placeholder="Password"
+				   PlaceholderColor="gray"
+				   TextColor="white"
+				   BackgroundColor="Transparent"
+				   IsPassword="True" />
+		</Border>
+
+        <Button Text="LOGIN" 
+                Clicked="OnLoginClicked" 
+                BackgroundColor="#B71C1C" 
+                TextColor="white"
+                FontAttributes="Bold"
+                CornerRadius="8"
+                HeightRequest="45"/>
+
+        <Label Text="Create Account"
+               TextColor="white"
+               FontSize="Small"
+               FontAttributes="Bold"
+               HorizontalOptions="Center">
+            
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnRegisterClicked"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <ActivityIndicator x:Name="LoadingSpinner" IsRunning="False" Color="red"/>
+
+    </VerticalStackLayout>
+</ContentPage>

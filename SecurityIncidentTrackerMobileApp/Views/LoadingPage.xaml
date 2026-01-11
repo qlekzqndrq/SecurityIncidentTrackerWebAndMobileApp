@@ -1,0 +1,13 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SecurityIncidentTrackerMobileApp.Views.LoadingPage"
+             BackgroundColor="white"
+             Shell.NavBarIsVisible="False">
+
+    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+        <Image Source="appicon.png" 
+               WidthRequest="200" 
+               HeightRequest="200" />
+        <ActivityIndicator IsRunning="True" Color="red" Margin="0,20,0,0"/>
+    </VerticalStackLayout>
+</ContentPage>

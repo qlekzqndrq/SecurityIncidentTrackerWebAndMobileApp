@@ -1,0 +1,50 @@
+﻿@page
+@model SecurityIncidentTrackerWebApp.Pages.Technicians.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Technician</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Technician.ID" />
+            <div class="form-group">
+                <label asp-for="Technician.FirstName" class="control-label"></label>
+                <input asp-for="Technician.FirstName" class="form-control" />
+                <span asp-validation-for="Technician.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Technician.LastName" class="control-label"></label>
+                <input asp-for="Technician.LastName" class="form-control" />
+                <span asp-validation-for="Technician.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Technician.Email" class="control-label"></label>
+                <input asp-for="Technician.Email" class="form-control" />
+                <span asp-validation-for="Technician.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Technician.Phone" class="control-label"></label>
+                <input asp-for="Technician.Phone" class="form-control" />
+                <span asp-validation-for="Technician.Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

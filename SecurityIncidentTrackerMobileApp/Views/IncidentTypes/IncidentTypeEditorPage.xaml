@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="SecurityIncidentTrackerMobileApp.Views.IncidentTypes.IncidentTypeEditorPage"
+             Title="Incident Types"
+             BackgroundColor="#121212">
+    <VerticalStackLayout Spacing="15" Padding="20">
+        <Label Text="Type Name" FontAttributes="Bold" TextColor="White"/>
+        <Border StrokeShape="RoundRectangle 10"
+               StrokeThickness="0"
+               BackgroundColor="#212121"
+               HeightRequest="50"
+               Padding="15,0">
+            <Entry x:Name="entName" 
+                   Placeholder="Ex: Malware, Phishing"
+                   PlaceholderColor="Gray"
+                   TextColor="White"
+                   BackgroundColor="Transparent"/>
+        </Border>
+
+        <Label Text="Estimated Duration (minutes)" FontAttributes="Bold" TextColor="White"/>
+        <Border StrokeShape="RoundRectangle 10"
+               StrokeThickness="0"
+               BackgroundColor="#212121"
+               HeightRequest="50"
+               Padding="15,0">
+            <Entry x:Name="entDuration" 
+                   Placeholder="Ex: 60" 
+                   Keyboard="Numeric"
+                   PlaceholderColor="Gray"
+                   TextColor="White"
+                   BackgroundColor="Transparent"/>
+        </Border>
+
+        <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,20,0,0">
+            <Button Text="SAVE" Clicked="OnSaveClicked" Grid.Column="0" BackgroundColor="#7f1d1d" TextColor="White" HeightRequest="45" CornerRadius="8"/>
+            <Button Text="CLOSE" Clicked="OnCancelClicked" Grid.Column="1" BackgroundColor="Gray" TextColor="White" HeightRequest="45" CornerRadius="8"/>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
