@@ -49,6 +49,8 @@ namespace SecurityIncidentTrackerWebApp.Controllers
         [HttpPost]
         public async Task<ActionResult<Department>> PostDepartment(Department department)
         {
+            ModelState.Remove("TechnicianDepartments");
+
             if (department.AssignedTechnicians != null && department.AssignedTechnicians.Any())
             {
                 department.TechnicianDepartments = new List<TechnicianDepartment>();
@@ -71,6 +73,8 @@ namespace SecurityIncidentTrackerWebApp.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutDepartment(int id, Department department)
         {
+            ModelState.Remove("TechnicianDepartments");
+
             if (id != department.ID) return BadRequest();
 
             // Incarcam departamentul existent cu tot cu legaturile vechi de tehnicieni

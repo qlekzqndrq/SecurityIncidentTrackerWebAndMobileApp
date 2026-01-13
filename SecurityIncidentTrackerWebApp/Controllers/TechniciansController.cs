@@ -32,6 +32,45 @@ namespace SecurityIncidentTrackerWebApp.Controllers
             return CreatedAtAction("GetTechnician", new { id = technician.ID }, technician);
         }
 
+        // PUT: api/Technicians/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutTechnician(int id, Technician technician)
+        {
+            // Spunem serverului sa ignore listele goale cand facem update
+            ModelState.Remove("TechnicianDepartments");
+            ModelState.Remove("Incidents"); 
+
+            if (id != technician.ID)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(technician).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!TechnicianExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        private bool TechnicianExists(int id)
+        {
+            return _context.Technicians.Any(e => e.ID == id);
+        }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTechnician(int id)
         {

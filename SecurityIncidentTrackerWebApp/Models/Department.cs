@@ -15,7 +15,7 @@ namespace SecurityIncidentTrackerWebApp.Models
         public ICollection<Incident>? Incidents { get; set; }
 
         [JsonIgnore] // NU trimitem in JSON
-        public ICollection<TechnicianDepartment> TechnicianDepartments { get; set; }
+        public ICollection<TechnicianDepartment>? TechnicianDepartments { get; set; }
 
         [NotMapped]
         [JsonProperty("AssignedTechnicians")] 
